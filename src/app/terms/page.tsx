@@ -1,3 +1,5 @@
+import "@/styles/Pages.scss";
+
 export default function Terms() {
 
     return <article className="Cardlike Cardlike--LongDoc">
