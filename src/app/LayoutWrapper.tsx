@@ -10,7 +10,7 @@ import { MantineProvider } from '@mantine/core';
 // import '@mantine/spotlight/styles.css';
 // import '@mantine/core/styles.layer.css';
 
-// import EventBusContextProvider from "./contexts/EventBusContext";
+// import EventBusContextProvider from "@/contexts/EventBusContext";
 // import UserLocalSettingsContextProvider from "@/contexts/UserLocalSettingsContext";
 // import BackendClientContextProvider from "@/contexts/BackendClientContext";
 // import CollectionsContextProvider from "@/contexts/CollectionsContext";
@@ -18,11 +18,11 @@ import { MantineProvider } from '@mantine/core';
 
 // import Header from "@/components/header/Header";
 // import InfoModal from "@/components/modals/InfoModal";
-// import ItemCreateModal from "./components/modals/ItemCreateModal";
-// import SpotlightSearch from "./components/SpotlightSearch";
+// import ItemCreateModal from "@/components/modals/ItemCreateModal";
+// import SpotlightSearch from "@/components/SpotlightSearch";
 // import { RequestPageType } from "@/types";
-// import { useHotkeys } from "@mantine/hooks";
-// import { openSpotlight } from "@mantine/spotlight";
+import { useHotkeys } from "@mantine/hooks";
+import { openSpotlight } from "@mantine/spotlight";
 
 import "@/styles/main.scss";
 
@@ -33,6 +33,15 @@ export default function LayoutWrapper({
 }: {
     children: React.ReactNode
 }) {
+
+    useHotkeys(
+        [
+            ["mod+K", openSpotlight, { preventDefault: true }],
+            ["mod+P", openSpotlight, { preventDefault: true }],
+        ],
+        [] // Does not ignore; will work in `<input/>` and `<textarea/>`.
+    );
+
     return (
         <MantineProvider
             theme={justJotTheme}
