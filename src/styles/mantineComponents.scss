@@ -1,0 +1,79 @@
+@use "./mixins" as m;
+
+.mantine-AppShell-main {
+    padding-top: 60px; // see: Header
+}
+
+.mantine-AppShell-header {
+    border-bottom: none;
+}
+
+// Devices without hover, aka, touchscreens
+@media (hover: none) {
+    .mantine-Input-input {
+        font-size: var(--fontSizeMd);
+    }
+}
+
+.mantine-Card-root {
+    background-color: var(--colBg);
+}
+
+.mantine-ScrollArea-scrollbar {
+    z-index: 100; 
+}
+
+.mantine-ScrollArea-viewport {
+    // To take the header into account
+    scroll-padding-top: 45px;
+
+    & > div {
+        // Overriding some mind-boggling stupidity in Mantine
+        display: block !important;
+    }
+}
+
+// .mantine-Menu-dropdown {
+//     @include m.GlassBlur;
+// }
+
+.mantine-Modal-content,
+.mantine-Spotlight-content {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--colPri);
+}
+
+.mantine-Modal-overlay,
+.mantine-Spotlight-overlay {
+    background-color: var(--colMenuBg);
+    backdrop-filter: blur(7px);
+}
+
+.mantine-Modal-content {
+    scrollbar-width: thin;
+}
+
+.mantine-Spotlight-action {
+    &[data-selected] {
+        background-color: var(--colPri);
+
+        .mantine-Spotlight-actionSection,
+        .mantine-Spotlight-actionLabel,
+        .mantine-Spotlight-actionDescription {
+            color: var(--colBg);
+        }
+    }
+};
+
+.mantine-Notifications-root {
+    @include m.Mobile {
+        bottom: 6rem;
+    }
+}
+
+.mantine-Notifications-notification {
+    color: var(--colPri);
+    background-color: var(--colBg);
+    border: solid 1px var(--colPri);
+}
