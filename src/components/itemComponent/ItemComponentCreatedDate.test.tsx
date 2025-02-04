@@ -1,7 +1,7 @@
 import { describe, expect, test, afterEach } from 'vitest';
 import items from "@/__tests__/fixtures/items.json";
 import { render, screen, cleanup } from "@testing-library/react";
-import { justJotCssVarsResolver, justJotTheme } from '@/theme.ts';
+import { justJotCssVarsResolver, justJotTheme } from '@/app/MantineTheme';
 import { DateTime, Settings } from 'luxon';
 
 import ItemComponentCreatedDate from '@/components/itemComponent/ItemComponentCreatedDate';

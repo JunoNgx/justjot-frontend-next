@@ -1,7 +1,7 @@
 import { describe, expect, test, afterEach } from 'vitest';
 import items from "@/__tests__/fixtures/items.json";
 import { render, cleanup, screen } from "@testing-library/react";
-import { justJotCssVarsResolver, justJotTheme } from '@/theme.ts';
+import { justJotCssVarsResolver, justJotTheme } from '@/app/MantineTheme';
 import { MantineProvider } from '@mantine/core';
 import ItemComponentText from '@/components/itemComponent/ItemComponentText';
 import { Item } from '@/types';
