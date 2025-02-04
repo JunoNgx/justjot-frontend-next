@@ -1,0 +1,19 @@
+.LabelWithIcon {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__LeftSide {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    &__RightSide {
+        display: grid;
+        place-items: center;
+    }
+}

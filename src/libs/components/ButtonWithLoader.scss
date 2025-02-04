@@ -1,0 +1,88 @@
+
+.ButtonWithLoader {
+    height: 2rem;
+    background-color: var(--colPri);
+    padding: 0.25rem 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+
+    &:focus-visible {
+        outline: 2px solid var(--colPri);
+        outline-offset: 2px;
+    }
+
+    &__LoaderContainer,
+    &__LabelContainer {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+
+    &__LabelContainer {
+        text-wrap: nowrap;
+        color: var(--colBg);
+        font-size: var(--fontSizeSm);
+        font-weight: 600;
+    }
+
+
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 150ms;
+
+    &[data-loading="false"] {
+        .ButtonWithLoader__LoaderContainer,
+        .ButtonWithLoader__LabelContainer {
+            transform: translateY(-100%);
+        }
+
+        .ButtonWithLoader__LoaderContainer {
+            opacity: 0;
+        }
+
+        .ButtonWithLoader__LabelContainer {
+            opacity: 1;
+        }
+    }
+
+    &[data-loading="true"] {
+        .ButtonWithLoader__LoaderContainer,
+        .ButtonWithLoader__LabelContainer {
+            transform: translateY(0);
+        }
+
+        .ButtonWithLoader__LoaderContainer {
+            opacity: 1;
+        }
+
+        .ButtonWithLoader__LabelContainer {
+            opacity: 0;
+        }
+    }
+
+    &[data-variant="secondary"] {
+        color: var(--colPri);
+        border-color: var(--colPri);
+        background-color: var(--colBg);
+
+        .ButtonWithLoader__LabelContainer,
+        .ButtonWithLoader__LoaderContainer {
+            color: var(--colPri);
+        }
+    }
+
+    &[data-variant="danger"] {
+        background-color: var(--colMagenta);
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
