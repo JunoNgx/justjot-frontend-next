@@ -1,10 +1,10 @@
-import { useOs } from "@mantine/hooks";
+import { useOs } from "@/utils/useOsServerSide";
 
-export default function KbdMod() {
-    const os = useOs();
+export default async function KbdMod() {
+    const os = await useOs();
 
     switch(true) {
-    case (os === "macos"):
+    case (os === "mac"):
     case (os === "ios"):
         return <kbd>Cmd</kbd>;
     default:

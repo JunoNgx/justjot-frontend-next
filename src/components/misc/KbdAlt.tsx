@@ -1,10 +1,10 @@
-import { useOs } from "@mantine/hooks";
+import { useOs } from "@/utils/useOsServerSide";
 
-export default function KbdAlt() {
-    const os = useOs();
+export default async function KbdAlt() {
+    const os = await useOs();
 
     switch(true) {
-    case (os === "macos"):
+    case (os === "mac"):
     case (os === "ios"):
         return <kbd>Opt</kbd>;
     default:
