@@ -1,0 +1,94 @@
+@use "./mixins" as m;
+
+.Cardlike {
+    margin: 0 auto 2rem;
+    max-width: 320px;
+
+    @include m.Mobile {
+        margin-top: 0;
+    }
+
+    &__Title {
+        margin-bottom: 1rem;
+    }
+    
+    &__Subtitle {
+        margin: 1rem 0 1rem;
+    }
+
+    &__BtnContainer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    &__BottomTextContainer {
+        margin-top: 1rem;
+    }
+
+    &__SuccessNotice {
+        margin-top: 1.25rem;
+    }
+
+    &--WithBottomMargin {
+        margin-bottom: 2rem;
+    }
+
+    &--IsLogin {
+        margin-top: 150px;
+    }
+
+    &--IsRegister{
+        margin-bottom: 60px;
+    }
+
+    &--IsReset {
+        margin-top: 200px;
+    }
+
+    &__HelpSection {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    &--LongDoc {
+        max-width: 640px;
+        hyphens: auto;
+        padding: 1rem;
+
+        h2, h3, h4, h5, h6 {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
+        h2 + p,
+        h3 + p,
+        h4 + p,
+        h5 + p,
+        h6 + p {
+            margin-top: 0;
+        }
+
+        p {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-top: 0;
+        }
+
+        li {
+            margin-top: 0.5rem;
+        }
+
+        li > p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__TermItem {
+        margin-top: 0.25rem;
+    }
+}
