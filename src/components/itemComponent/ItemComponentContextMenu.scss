@@ -1,0 +1,32 @@
+@use "../../styles/mixins" as m;
+
+.ItemContextMenu {
+    @include m.GlassBlur;
+    @include m.Menu;
+    @include m.AnimatedContextMenu;
+
+    &__Item {
+        @include m.DropdownItem;
+        padding: 0.5rem;
+
+        &--IsBlue {
+            color: var(--colCyan);
+        }
+
+        &--IsRed {
+            color: var(--colMagenta);
+        }
+
+        &--IsViolet {
+            color: var(--colViolet);
+        }
+
+        &--IsOrange {
+            color: var(--colYellow);
+        }
+    }
+
+    &__Separator {
+        @include m.DropdownSeparator;
+    }
+}

@@ -1,0 +1,99 @@
+.Modal {
+    &--Stackbox,
+    &__Stackbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    &--ThickPadding {
+        padding: 1.25rem;
+    }
+
+    &__ButtonsFlexbox {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__SortCollectionList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__CollectionItem {
+        margin: 0.5rem;
+        padding: 0.5rem 1.25rem;
+        border: 1px solid var(--colPri);
+    }
+    
+    &__CollectionName {
+        margin: 0;
+    }
+
+    &__FlexWrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 1rem;
+
+        > svg {
+            flex-shrink: 0;
+        }
+    }
+
+    &__BtnContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+
+        &--FlexEnd {
+            justify-content: flex-end;
+        }
+    }
+
+    &__Input {
+        font-family: var(--monospaceFontFamily);
+    }
+
+    &__SubInputFlexbox {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: var(--fontSizeSm);
+        margin-top: 0.25rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__ExitConfirm {
+        text-align: right;
+        margin: 0;
+    }
+
+    &__MoveItemOption {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__MoveItemBtn {
+        width: 70%;
+    }
+
+    &__LoaderContainer {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+}

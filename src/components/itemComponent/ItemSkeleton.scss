@@ -1,0 +1,72 @@
+@use "../../styles/mixins" as m;
+
+@mixin SkeletonBlock {
+    height: 2rem;
+    background-color: var(--colSkeleton);
+}
+
+.ItemSkeleton {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 2rem;
+    margin: 0.4rem;
+
+    @include m.Mobile {
+        gap: 0;
+    }
+
+    &__LeftSide {
+        display: flex;
+        justify-content: flex-start;
+        min-width: 0;
+        flex-grow: 3;
+        width: 60%;
+        justify-content: flex-start;
+        gap: 1rem;
+
+        @include m.Mobile {
+            width: 100%;
+        }
+    }
+
+    &__RightSide {
+        flex-shrink: 0;
+    }
+
+    &__IconWrapper {
+        @include SkeletonBlock;
+        width: 2rem;
+    }
+
+    &__PrimaryText {
+        @include SkeletonBlock;
+        width: calc(100% - 1rem - 32px);
+    }
+
+    &__Datetime {
+        @include SkeletonBlock;
+        width: 5rem;
+        flex-shrink: 0;
+
+        @include m.Mobile {
+            display: none;
+        }
+    }
+
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-name: breathing;
+    will-change: opacity;
+
+    @keyframes breathing {
+        from {
+            opacity: 0.5;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}

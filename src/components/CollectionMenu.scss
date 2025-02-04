@@ -1,0 +1,74 @@
+@use "../styles/mixins" as m;
+
+.CollectionMenuBtn {
+    @include m.DropdownTriggerBtn;
+    @include m.DropdownTriggerLabel;
+
+    &__Label {
+        user-select: none;
+        max-width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    @include m.Mobile {
+        display: none;
+    }
+
+    &--IsMobile {
+        display: none;
+
+        @include m.Mobile {
+            @include m.GlassBlur;
+            @include m.DropdownTriggerBtn;
+
+            display: flex;
+            z-index: 2;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+    
+            border: solid 1px var(--colPri);
+            background-color: var(--colBg);
+            padding: 0.75rem 1rem;
+            padding-right: 0.75rem;
+        }
+    }
+}
+
+.CollectionMenuDropdown {
+    @include m.GlassBlur;
+    @include m.Menu;
+    @include m.AnimatedDropdown;
+
+    width: max-content;
+    max-width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+
+    &__Separator {
+        @include m.DropdownSeparator;
+    }
+
+    &__Item {
+        @include m.DropdownItem;
+
+        &--IsRed {
+            color: var(--colMagenta);
+        }
+
+        &--IsViolet {
+            color: var(--colViolet);
+        }
+
+        &--IsSelected {
+            font-weight: 700;
+        }
+    }
+
+    &__Label {
+        width: 100%;
+    }
+}

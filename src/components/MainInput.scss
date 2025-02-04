@@ -1,0 +1,83 @@
+@use "../styles/mixins" as m;
+
+.MainInput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
+    border: 1px solid var(--colPri);
+    box-sizing: content-box;
+
+    outline-offset: 4px;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: transparent;
+
+    will-change: outline-color;
+    transition: outline-color ease-in-out 250ms;
+    
+    &:focus-within {
+        outline-color: var(--colPri);
+    }
+
+    &__LeftSide {
+        user-select: none;
+        width: 3rem;
+        display: grid;
+        place-items: center;
+    }
+
+    &__Input {
+        flex: 1;
+        border: none;
+        height: 100%;
+        min-width: 150px;
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &__RightSide {
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.MainInputDropdown {
+    @include m.GlassBlur;
+    @include m.Menu;
+    @include m.AnimatedDropdown;
+
+    &__Btn {
+        height: 100%;
+        @include m.DropdownTriggerBtn;
+        padding: 0;
+
+        &:focus-visible {
+            outline-offset: -5px;
+        }
+    }
+
+    &__BtnLabel {
+        width: 3rem;
+        display: grid;
+        place-items: center;
+        color: var(--colPri);
+    }
+
+    &__Item {
+        @include m.DropdownItem;
+    }
+
+    &__GroupLabel {
+        @include m.DropdownGroupLabel;
+    }
+
+    &__Separator {
+        @include m.DropdownSeparator;
+    }
+}

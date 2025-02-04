@@ -1,0 +1,104 @@
+@use "../../styles/mixins" as m;
+
+.Header {
+    padding-left: 0;
+    padding-right: 5px;
+    // height: 48px;
+
+    &__FlexWrapper {
+        display: flex;
+        justify-content: space-between;
+        max-width: var(--ContainerWidth);
+        margin-inline: auto;
+    }
+
+    &__LeftSide {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__LogoNav {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+
+        &:hover {
+            background-color: var(--colGreyBg);
+        }
+    }
+
+    &__LogoIcon {
+        color: var(--colPri);
+    }
+
+    &__RightSide {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__ThemeModeContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__ThemeModeBtn {
+        color: var(--colPri);
+        padding: 0.25rem;
+        border-radius: 1rem;
+
+        &:hover {
+            background-color: var(--colGreyBg);
+        }
+    }
+
+    &__LoginRegisterBox {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-right: 1rem;
+    }
+
+    &__ProfileDropdown {
+        @include m.GlassBlur;
+        @include m.Menu;
+        @include m.AnimatedDropdown();
+    }
+
+    &__ProfileDropdownItem {
+        @include m.DropdownItem;
+    }
+
+    &__ProfileDropdownSeparator {
+        @include m.DropdownSeparator;
+    }
+
+    &__ProfileDropdownBtn {
+        @include m.DropdownTriggerBtn;
+    }
+        
+    &__ProfileDropdownBtnLabel {
+        @include m.DropdownTriggerLabel;
+    }
+
+    &__UsernameText {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @include m.Mobile {
+        &__UsernameText {
+            max-width: 120px;
+        }
+    }
+}

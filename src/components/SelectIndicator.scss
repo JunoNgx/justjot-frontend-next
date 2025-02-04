@@ -1,0 +1,14 @@
+@use "../styles/mixins" as m;
+
+.SelectIndicator {
+    position: absolute;
+    pointer-events: none;
+    height: 42px;
+    width: 100%;
+    border: solid m.rem(1px) var(--colPri);
+
+    will-change: opacity, transform;
+    transition-property: opacity, transform;
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(.22,.61,.36,1);
+}

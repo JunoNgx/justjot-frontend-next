@@ -1,0 +1,214 @@
+@use "../../styles/mixins" as m;
+
+.Item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+
+    height: 42px;
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    border: solid 1px transparent;
+
+    // override the anchor styles
+    text-decoration: none;
+    color: var(--colPri);
+
+    &:hover,
+    &:visited {
+        color: var(--colPri);
+    }
+
+    &--IsSelected {
+        border-color: var(--colPri);
+    }
+
+    @include m.Mobile {
+        gap: 0;
+    }
+
+    &__IconWrapper {
+        display: grid;
+        place-items: center;
+        user-select: none;
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &__IconColour {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+    }
+
+    &__FaviconImg {
+        height: 24px;
+        flex: auto;
+    }
+
+    &__LeftSide {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+
+        overflow: hidden;
+        flex-grow: 2;
+    }
+
+    &__TextWrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.5rem;
+
+        position: relative;
+        max-width: calc(100% - 32px);
+
+        // Copied state animation for item texts
+        .Item__PrimaryText,
+        .Item__SecondaryText,
+        .Item__CopiedText {
+            will-change: opacity, transform;
+            animation-timing-function: ease-in-out;
+            animation-duration: 300ms;
+        }
+
+        .Item__PrimaryText,
+        .Item__SecondaryText {
+            animation-name: MainTextSlideIn;
+        }
+
+        .Item__CopiedText {
+            color: var(--colCyan);
+            animation-name: CopiedTextSlideIn;
+        }
+
+        @keyframes CopiedTextSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes MainTextSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(+50%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__PrimaryText,
+    &__SecondaryText {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        user-select: none;
+        max-width: calc(100%);
+    }
+
+    --todoDuration: 300ms;
+    --todoFunc: ease-in-out;
+
+    &__PrimaryText {
+        flex-shrink: 0;
+
+        // For todo animation
+        will-change: color;
+        transition-property: color;
+        transition-duration: var(--todoDuration);
+        transition-timing-function: var(--todoFunc);
+
+        &::before {
+            content: "";
+            user-select: none;
+            display: inline-block;
+            width: 0;
+            background-color: transparent;
+            position: absolute;
+            height: 50%;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: var(--colPri);
+
+            will-change: width, border-bottom-color;
+            transition-property: width, border-bottom-color;
+            transition-duration: var(--todoDuration);
+            transition-timing-function: var(--todoFunc);
+        }
+    }
+
+
+    &--IsTodoDone {
+        .Item__PrimaryText {
+            color: var(--colGrey);
+
+            &:before {
+                width: 100%;
+                border-bottom-color: var(--colGrey);
+            }
+        }
+    }
+
+    &__SecondaryText {
+        font-family: var(--monospaceFontFamily);
+        color: var(--colGrey);
+        font-size: 0.8rem;
+        flex-shrink: 4;
+    }
+
+    &__RightSide {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    &__ShouldCopyIndicator {
+        display: grid;
+        place-items: center;
+    }
+
+    &__Datetime {
+        color: var(--colPri);
+        user-select: none;
+
+        @include m.Mobile {
+            display: none;
+        }
+    }
+
+    &--HasNoPrimaryText {
+        .Item__PrimaryText {
+            display: none;
+        }
+
+        .Item__SecondaryText {
+            max-width: calc(100%);
+        }
+    }
+
+    &--HasNoSecondaryText {
+        .Item__PrimaryText {
+            max-width: calc(100%);
+        }
+        
+        .Item__SecondaryText {
+            display: none;
+        }
+    }
+}
