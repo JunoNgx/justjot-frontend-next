@@ -1,0 +1,13 @@
+.root {
+    &[data-variant='mono'] {
+        &[disabled] {
+            opacity: 0.5;
+        }
+
+        [data-mantine-color-scheme="light"],
+        [data-mantine-color-scheme="dark"] & {
+            background-color: var(--colPri);
+            color: var(--colBg);
+        }
+    }
+}
