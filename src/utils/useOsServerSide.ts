@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-export async function useOs() {
+export const useOs = async () => {
     const headersList = await headers();
     const userAgent = headersList.get("user-agent");
 
