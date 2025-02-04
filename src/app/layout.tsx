@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "Keyboard-first note app",
 };
 
-import MantineProvider from '@/app/MantineProvider';
+import LayoutWrapper from '@/app/LayoutWrapper';
 
 export default function RootLayout({
     children,
@@ -16,9 +16,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <MantineProvider>
+                <LayoutWrapper>
                     {children}
-                </MantineProvider>
+                </LayoutWrapper>
             </body>
         </html>
     );

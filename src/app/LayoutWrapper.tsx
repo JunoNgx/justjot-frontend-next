@@ -28,7 +28,7 @@ import "@/styles/main.scss";
 
 import { justJotCssVarsResolver, justJotTheme } from '@/app/MantineTheme';
 
-export default function ManetineProvider({
+export default function LayoutWrapper({
     children
 }: {
     children: React.ReactNode
